@@ -12,12 +12,12 @@ function init(){
 // test
 // fill the html with surfer data
 function showSurferData(data) {
-	let windSpeed = data.wind.speed;
-	let windDirection = data.wind.deg;
+	let windSpeed = data?.wind?.speed || 0; 
+	let windDirection = data?.wind?.deg || 0;
 	const windSpeedData = document.getElementById("wind-speed-data");
 	const windDirectionData = document.getElementById("wind-direction-data");
-	windSpeedData.innerText = `${windspeed}`;
-	windDirectionData.innerText = `${windDirection}`;
+	windSpeedData.innerText = `${windSpeed} knots`;
+	windDirectionData.innerText = `${windDirection}°`;
 }
 
 
