@@ -7,3 +7,6 @@ function getVampires(){
 
 }
 
+function getSurfers(){
+    // met surfers    
+}
