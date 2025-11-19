@@ -47,8 +47,7 @@ function init(){
 }
 
 
-
-
+// test
 // fill the html with surfer data
 function showSurferData(data) {
 
