@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
@@ -13,23 +13,37 @@
         <link rel="stylesheet" href="style.css" />
         <title>Weather App</title>
     </head>
-    <body>
-        <!-- nav bar -->
-        <div id="navigation"></div>
+<body>
+    <!-- nav bar -->
+    <div id="navigation"></div>
+    
+    <!-- search and buttons -->
+    <div id="search"></div>
+    <div id="buttons"></div>
+    
+    <!-- hero banner -->
+     <div id="hero-banner"></div>
+     
+    <!-- main content -->
+     <!-- surfers -->
+    <div class="surf-container">
+  
+    <h2 class="surf-header">Surf-o-meter</h2>
 
-        <!-- search and buttons -->
-        <div id="search"></div>
-        <div id="buttons"></div>
+    <div class="surf-image">
+        <img src="surf.jpg" alt="Surfing">
+    </div>
 
-        <!-- hero banner -->
-        <div id="hero-banner"></div>
+    <div class="surf-row">
+        <span>Wind speed</span>
+        <span id="wind-speed-data">15 km/h</span> </div>
 
-        <!-- main content -->
-        <!-- surfers -->
-        <div id="surfers"></div>
-
-        <!-- tomatoes -->
-        <div id="tomatoes" class="container">
+    <div class="surf-row">
+        <span>Wind direction</span>
+        <span id="wind-direction-data">NW</span> </div>
+    </div>
+    <!-- tomatoes -->
+    <div id="tomatoes" class="container">
             <div class="row">
                 <div class="card">
                     <img
@@ -83,6 +97,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 <div id="vampires" class="container my-4">
     <div class="row">
         <div class="card p-0">
@@ -116,6 +131,34 @@
                 </div>
 
             </div>
+=======
+        
+    <!-- vampires -->
+    <div id="vampires">
+    <div class="image-wrapper">
+        <img src="generated-image-975c38f6-facb-4e85-9c13-4b826b85e05e (1).jpg" alt="vampire icon" class="icon">
+    </div>
+    
+    <div class="vampire-info">
+        <div class="row">
+            <span>Temperature</span>
+            <span id="vampire-temperature">—</span>
+        </div>
+    
+        <div class="row">
+            <span>Humidity</span>
+            <span id="vampire-humidity">—</span>
+        </div>
+    
+        <div class="row">
+            <span>Hours sun</span>
+            <span id="vampire-sunhours">—</span>
+        </div>
+    
+        <div class="row">
+            <span>Wind speed</span>
+            <span id="vampire-windspeed">—</span>
+>>>>>>> 204b888f4e46606617c448d3bdcf4d4d0b146262
         </div>
     </div>
 </div>
