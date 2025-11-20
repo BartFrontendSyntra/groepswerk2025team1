@@ -19,43 +19,64 @@
     </head>
     <body>
         <!-- nav bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Niche Weather Dashboard</a>
 
-        
-        <a class="navbar-brand" href="#">Niche Weather Dashboard</a>
+                <!-- Hamburger icon -->
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!-- Hamburger icon -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- NAV CONTENT -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-
-            <!-- CENTER SEARCHBAR -->
-            <form class="d-flex mx-auto" style="max-width: 500px; width: 100%;">
-                <div class="input-group">
-                    <input
-                        id="search-location"
-                        class="form-control"
-                        type="search"
-                        placeholder="Search location..."
-                        aria-label="Search"
-                    />
-                    <button
-                        id="search-button"
-                        class="btn btn-primary"
-                        type="submit"
+                <!-- NAV CONTENT -->
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <!-- CENTER SEARCHBAR -->
+                    <form
+                        class="d-flex mx-auto"
+                        style="max-width: 500px; width: 100%"
                     >
-                        <i class="bi bi-search"></i>
-                    </button>
+                        <div class="input-group">
+                            <input
+                                id="search-location"
+                                class="form-control"
+                                type="search"
+                                placeholder="Search location..."
+                                aria-label="Search"
+                            />
+                            <button
+                                id="search-button"
+                                class="btn btn-primary"
+                                type="submit"
+                            >
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- RIGHT SIDE LINKS -->
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#surfers">Surfers</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tomatoes">Tomatoes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#vampires">Vampires</a>
+                        </li>
+                    </ul>
                 </div>
-            </form>
-
-            <!-- RIGHT SIDE LINKS -->
+            </div>
+        </nav>
+        <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
                 <li class="nav-item">
                     <a class="nav-link" href="#surfers">Surfers</a>
                 </li>
@@ -67,53 +88,37 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#vampires">Vampires</a>
                 </li>
-
             </ul>
         </div>
-    </div>
-</nav>
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link" href="#surfers">Surfers</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#tomatoes">Tomatoes</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#vampires">Vampires</a>
-        </li>
-
-      </ul>
-    </div>
-  </div>
-</nav>  
-        </nav>
 
         <!-- hero banner -->
         <div id="hero-banner">
             <div id="location"></div>
             <div id="surfers" class="container card">
-            <div class="row">
-                <h2 class="surf-header card-title text-center">Surf-o-meter</h2>
-            </div>
+                <div class="row">
+                    <h2 class="surf-header card-title text-center">
+                        Surf-o-meter
+                    </h2>
+                </div>
 
-            <div class="surf-image row">
-                <img src="thisisfine.png" alt="Fine" />
-            </div>
-            <div class="row justify-content-center">
-                <p class="col-3 mt-1 m-3">Previous locations:</p>
-                <div class="col">
-                <button class="btn btn-secondary btn-lg mt-2">Test</button>
-                <button class="btn btn-secondary btn-lg mt-2">Test</button>
-                <button class="btn btn-secondary btn-lg mt-2">Test</button>
+                <div class="surf-image row">
+                    <img src="thisisfine.png" alt="Fine" />
+                </div>
+                <div class="row justify-content-center">
+                    <p class="col-3 mt-1 m-3">Previous locations:</p>
+                    <div class="col">
+                        <button class="btn btn-secondary btn-lg mt-2">
+                            Test
+                        </button>
+                        <button class="btn btn-secondary btn-lg mt-2">
+                            Test
+                        </button>
+                        <button class="btn btn-secondary btn-lg mt-2">
+                            Test
+                        </button>
+                    </div>
                 </div>
             </div>
-
-        </div>
         </div>
 
         <!-- main content -->
@@ -149,7 +154,6 @@
                     />
                     <div class="card-body">
                         <div class="row">
-                            
                             <div class="col">
                                 <p class="card-text">humidity:</p>
                                 <div
@@ -202,8 +206,8 @@
         <div id="vampires" class="container my-5">
             <div class="row">
                 <div class="card p-0">
-                     <h2 class="card-title text-center mb-3 my-3">
-                            Vampire-O-Meter
+                    <h2 class="card-title text-center mb-3 my-3">
+                        Vampire-O-Meter
                     </h2>
                     <img
                         src="generated-image-975c38f6-facb-4e85-9c13-4b826b85e05e (1).jpg"
@@ -236,7 +240,7 @@
                 </div>
             </div>
         </div>
-        
+
         <script src="secret-key.js"></script>
         <script src="tomatoes.js"></script>
         <script src="surfers.js"></script>

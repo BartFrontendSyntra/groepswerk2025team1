@@ -4,35 +4,30 @@ const vampireHtmlElement = document.getElementById("vampires");
 
 function showVampireData(data) {
     // --- SUNRISE ---
-    
+
     let sunrise = data.sys.sunrise; //`${sunriseHours}:${sunriseMinutes}`;
-    
+
     // --- SUNSET ---
-    
+
     let sunset = data.sys.sunset; //`${sunsetHours}:${sunsetMinutes}`;
 
     // --- CLOUD COVER ---
-    let cloudCover = data.clouds.all; 
+    let cloudCover = data.clouds.all;
 
-   // Fill in the HTML elements
-    document.getElementById(
-        "vampire-sunrise"
-    ).innerText = convertUnixToTime(sunrise);
+    // Fill in the HTML elements
+    document.getElementById("vampire-sunrise").innerText =
+        convertUnixToTime(sunrise);
 
-   document.getElementById(
-      "vampire-sunset"
-   ).innerText = convertUnixToTime(sunset);
+    document.getElementById("vampire-sunset").innerText =
+        convertUnixToTime(sunset);
 
-   document.getElementById(
-      "vampire-cloudcover"
-   ).innerText = `${cloudCover}%`;
+    document.getElementById("vampire-cloudcover").innerText = `${cloudCover}%`;
 }
-
 
 // convert time to hours and minutes
 function convertUnixToTime(timestamp) {
-  const date = new Date(timestamp * 1000); // API gives seconds → JS needs ms
-  const hours = date.getHours().toString().padStart(2, "0");
-  const minutes = date.getMinutes().toString().padStart(2, "0");
-  return `${hours}:${minutes}`;
-} 
+    const date = new Date(timestamp * 1000); // API gives seconds → JS needs ms
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
+}

@@ -13,8 +13,8 @@ init();
 
 function init() {
     let lastLocations = getLastSearchedLocations();
-    if(lastLocations.length > 0){
-        searchWeather(lastLocations[lastLocations.length -1]);
+    if (lastLocations.length > 0) {
+        searchWeather(lastLocations[lastLocations.length - 1]);
         return;
     }
     searchWeather("T2 campus");
@@ -62,18 +62,23 @@ function showLocation(data) {
     locationHtmlElement.innerText = `weather for: ${data[0].display_name}`;
 }
 
-// get the 5 last searched locations from local storage in 
-function getLastSearchedLocations(){
-    return localStorage.getItem("lastSearchedLocations") ? JSON.parse(localStorage.getItem("lastSearchedLocations")) : [];
+// get the 5 last searched locations from local storage in
+function getLastSearchedLocations() {
+    return localStorage.getItem("lastSearchedLocations")
+        ? JSON.parse(localStorage.getItem("lastSearchedLocations"))
+        : [];
 }
 
-function saveLastSearchedLocation(location){
+function saveLastSearchedLocation(location) {
     let locations = getLastSearchedLocations();
-    if(!locations.includes(location)){
+    if (!locations.includes(location)) {
         locations.push(location);
-        if(locations.length > 5){
+        if (locations.length > 5) {
             locations.shift();
         }
-        localStorage.setItem("lastSearchedLocations", JSON.stringify(locations));
+        localStorage.setItem(
+            "lastSearchedLocations",
+            JSON.stringify(locations)
+        );
     }
 }
