@@ -1,5 +1,7 @@
 body {
   background-image: url('background.png');
+  background-size: cover;
+  background-attachment: fixed;
 }
 /* Vertical progress bar for rain */
 .progress-vertical {
