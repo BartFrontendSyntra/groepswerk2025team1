@@ -1,60 +1,5 @@
-const exampleData = {
-    dt: 1763564400,
-    main: {
-        temp: 277.84,
-        feels_like: 274.33,
-        temp_min: 277.84,
-        temp_max: 277.98,
-        pressure: 1002,
-        sea_level: 1002,
-        grnd_level: 993,
-        humidity: 91,
-        temp_kf: -0.14,
-    },
-    weather: [
-        {
-            id: 500,
-            main: "Rain",
-            description: "light rain",
-            icon: "10d",
-        },
-    ],
-    clouds: {
-        all: 100,
-    },
-    wind: {
-        speed: 4.54,
-        deg: 216,
-        gust: 8.52,
-    },
-    visibility: 10000,
-    pop: 0.66,
-    rain: {
-        "3h": 0.33,
-    },
-    sys: {
-        pod: "d",
-    },
-    dt_txt: "2025-11-19 15:00:00",
-};
 // elements we need to get data from and put data into
-const searchLocationHtmlElement = document.getElementById("search-location");
-const searchButtonHtmlElement = document.getElementById("search-button");
 const tomatoHtmlElement = document.getElementById("tomatoes");
-
-// add listeners
-searchButtonHtmlElement.addEventListener("click", (event) => {
-    event.preventDefault();
-    const location = searchLocationHtmlElement.value;
-    generateWeather(location);
-});
-
-init();
-
-function init() {
-    showTomatoData(exampleData);
-    generateWeather("T2 campus");
-}
 
 function showTomatoData(data) {
     let rain = data.rain ? data.rain["3h"] : 0;
@@ -71,39 +16,4 @@ function showTomatoData(data) {
     rainMeter.setAttribute("aria-valuenow", rain);
     rainText.innerText = `${rain} mm`;
     rainText.style.height = `${rain * 40}%`;
-}
-
-function generateWeather(location) {
-    const searchLocationLink = `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
-
-    //search for location information, not weather data yet!
-    fetch(searchLocationLink)
-        .then((res) => res.json())
-        .then((data) => generateWeatherData(data))
-        .catch((error) =>
-            console.error("Error fetching location data:", error)
-        );
-}
-
-function generateWeatherData(locationData) {
-    //show what city we are in and other global information
-    showOverallData(locationData);
-
-    //fetch weather data for the location
-    let lat = locationData[0].lat;
-    let lon = locationData[0].lon;
-    const searchLink = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
-    fetch(searchLink)
-        .then((res) => res.json())
-        .then((data) => showWeatherData(data))
-        .catch((error) => console.error("Error fetching weather data:", error));
-}
-
-function showWeatherData(data) {
-    showTomatoData(data);
-}
-
-function showOverallData(data) {
-    const locationHtmlElement = document.getElementById("location");
-    locationHtmlElement.innerText = `weather for: ${data[0].display_name}`;
 }
