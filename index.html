@@ -19,15 +19,59 @@
     </head>
     <body>
         <!-- nav bar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+
         
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Niche Weather Dashboard</a>
+        <a class="navbar-brand" href="#">Niche Weather Dashboard</a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Hamburger icon -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
+        <!-- NAV CONTENT -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            <!-- CENTER SEARCHBAR -->
+            <form class="d-flex mx-auto" style="max-width: 500px; width: 100%;">
+                <div class="input-group">
+                    <input
+                        id="search-location"
+                        class="form-control"
+                        type="search"
+                        placeholder="Search location..."
+                        aria-label="Search"
+                    />
+                    <button
+                        id="search-button"
+                        class="btn btn-primary"
+                        type="submit"
+                    >
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+
+            <!-- RIGHT SIDE LINKS -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#surfers">Surfers</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#tomatoes">Tomatoes</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#vampires">Vampires</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
@@ -46,36 +90,8 @@
       </ul>
     </div>
   </div>
-</nav>
-
-        <!-- search and buttons -->
-        <div id="search">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6">
-                        <form class="d-flex">
-                            <div class="input-group">
-                                <input
-                                    id="search-location"
-                                    class="form-control form-control-lg"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                />
-                                <button
-                                    id="search-button"
-                                    class="btn btn-primary px-4"
-                                    type="submit"
-                                >
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="buttons"></div>
+</nav>  
+        </nav>
 
         <!-- hero banner -->
         <div id="hero-banner">
