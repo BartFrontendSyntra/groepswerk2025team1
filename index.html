@@ -10,6 +10,7 @@
             integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
             crossorigin="anonymous"
         />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
         <link rel="stylesheet" href="style.css" />
         <title>Weather App</title>
     </head>
@@ -18,7 +19,30 @@
         <div id="navigation"></div>
 
         <!-- search and buttons -->
-        <div id="search"></div>
+        <div id="search">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form class="d-flex">
+                            <div class="input-group">
+                                <input
+                                    class="form-control form-control-lg"
+                                    type="search"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                />
+                                <button
+                                    class="btn btn-primary px-4"
+                                    type="submit"
+                                >
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="buttons"></div>
 
         <!-- hero banner -->
@@ -28,7 +52,7 @@
         <!-- surfers -->
         <div id="surfers" class="container card">
             <div class="row">
-            <h2 class="surf-header card-title">Surf-o-meter</h2>
+                <h2 class="surf-header card-title">Surf-o-meter</h2>
             </div>
 
             <div class="surf-image row">
@@ -140,7 +164,6 @@
                                 —
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
