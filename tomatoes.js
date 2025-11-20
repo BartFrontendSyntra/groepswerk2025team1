@@ -76,6 +76,7 @@ function showTomatoData(data) {
 function generateWeather(location) {
     const searchLocationLink = `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
 
+    //search for location information, not weather data yet!
     fetch(searchLocationLink)
         .then((res) => res.json())
         .then((data) => generateWeatherData(data))
@@ -83,10 +84,12 @@ function generateWeather(location) {
             console.error("Error fetching location data:", error)
         );
 }
+
 function generateWeatherData(locationData) {
     //show what city we are in and other global information
     showOverallData(locationData);
 
+    //fetch weather data for the location
     let lat = locationData[0].lat;
     let lon = locationData[0].lon;
     const searchLink = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
