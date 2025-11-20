@@ -84,8 +84,14 @@ function generateWeatherData(locationData) {
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={API_KEY}`;
     fetch(searchLink)
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then((data) => showWeatherData(data))
         .catch((error) => console.error("Error fetching weather data:", error));
 
 
+}
+
+function showWeatherData(data) {
+
+    showTomatoData(data);
+    
 }
