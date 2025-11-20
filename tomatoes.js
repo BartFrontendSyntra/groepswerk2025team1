@@ -37,9 +37,17 @@ const exampleData = {
     },
     dt_txt: "2025-11-19 15:00:00",
 };
-
-
+// elements we need to get data from and put data into
+const searchLocationHtmlElement = document.getElementById("search-location");
+const searchButtonHtmlElement = document.getElementById("search-button");
 const tomatoHtmlElement = document.getElementById("tomatoes");
+
+// add listeners
+searchButtonHtmlElement.addEventListener("click", (event) => {
+    event.preventDefault();
+    const location = searchLocationHtmlElement.value;
+    generateWeather(location);
+});
 
 init();
 
@@ -66,33 +74,33 @@ function showTomatoData(data) {
 }
 
 function generateWeather(location) {
-    const searchLocationLink =
-        `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
-    
+    const searchLocationLink = `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
+
     fetch(searchLocationLink)
         .then((res) => res.json())
         .then((data) => generateWeatherData(data))
-        .catch((error) => console.error("Error fetching location data:", error));
-   
-    
+        .catch((error) =>
+            console.error("Error fetching location data:", error)
+        );
 }
 function generateWeatherData(locationData) {
-   
+    //show what city we are in and other global information
+    showOverallData(locationData);
+
     let lat = locationData[0].lat;
     let lon = locationData[0].lon;
-     const searchLink =
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+    const searchLink = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
     fetch(searchLink)
         .then((res) => res.json())
         .then((data) => showWeatherData(data))
         .catch((error) => console.error("Error fetching weather data:", error));
-
-
 }
 
 function showWeatherData(data) {
-console.log(data);
-
     showTomatoData(data);
-    
+}
+
+function showOverallData(data) {
+    const locationHtmlElement = document.getElementById("location");
+    locationHtmlElement.innerText = `weather for: ${data[0].display_name}`;
 }
