@@ -38,15 +38,17 @@ const exampleData = {
     dt_txt: "2025-11-19 15:00:00",
 };
 
+
 const tomatoHtmlElement = document.getElementById("tomatoes");
+
 init();
 
 function init() {
     showTomatoData(exampleData);
+    generateWeatherLink("T2 campus");
 }
 
 function showTomatoData(data) {
-
     let rain = data.rain ? data.rain["3h"] : 0;
     let humidity = data.main.humidity;
     const humidityMeter = document.getElementById("humidity-meter");
@@ -55,10 +57,35 @@ function showTomatoData(data) {
     humidityMeter.setAttribute("aria-valuenow", humidity);
     humidityMeter.querySelector(".progress-bar").style.width = `${humidity}%`;
     humidityText.innerText = `${humidity}%`;
-	
+
     const rainMeter = document.getElementById("rain-meter");
     const rainText = document.getElementById("rain-text");
     rainMeter.setAttribute("aria-valuenow", rain);
     rainText.innerText = `${rain} mm`;
     rainText.style.height = `${rain * 40}%`;
+}
+
+function generateWeather(location) {
+    const searchLocationLink =
+        `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
+    
+    fetch(searchLocationLink)
+        .then((res) => res.json())
+        .then((data) => generateWeatherData(data))
+        .catch((error) => console.error("Error fetching location data:", error));
+   
+    
+}
+function generateWeatherData(locationData) {
+   
+    let lat = locationData[0].lat;
+    let lon = locationData[0].lon;
+     const searchLink =
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={API_KEY}`;
+    fetch(searchLink)
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error("Error fetching weather data:", error));
+
+
 }
