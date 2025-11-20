@@ -59,7 +59,7 @@ function showWeatherData(data) {
 // show location information in html
 function showLocation(data) {
     const locationHtmlElement = document.getElementById("location");
-    locationHtmlElement.innerText = `weather for: ${data[0].display_name}`;
+    locationHtmlElement.innerText = `Weather for: ${data[0].name}`;
 }
 
 // get the 5 last searched locations from local storage in
