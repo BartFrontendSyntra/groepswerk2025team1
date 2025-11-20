@@ -12,9 +12,14 @@ searchButtonHtmlElement.addEventListener("click", (event) => {
 init();
 
 function init() {
+    let lastLocations = getLastSearchedLocations();
+    if(lastLocations.length > 0){
+        searchWeather(lastLocations[lastLocations.length -1]);
+        return;
+    }
     searchWeather("T2 campus");
 }
-
+// fetch weather data for the rough location name
 function searchWeather(location) {
     const searchLocationLink = `https://nominatim.openstreetmap.org/search?q=${location}&format=json`;
 
@@ -27,9 +32,14 @@ function searchWeather(location) {
         );
 }
 
+/**
+ *  Fetch weather data based on location data
+ * @param {*} locationData - location data fetched from nominatim api, JSON format
+ */
 function searchWeatherData(locationData) {
     //show what city we are in and other global information
     showLocation(locationData);
+    saveLastSearchedLocation(locationData[0].display_name);
 
     //fetch weather data for the location
     let lat = locationData[0].lat;
@@ -40,14 +50,30 @@ function searchWeatherData(locationData) {
         .then((data) => showWeatherData(data))
         .catch((error) => console.error("Error fetching weather data:", error));
 }
-
+// show all weather data in respective sections
 function showWeatherData(data) {
     showTomatoData(data);
     showSurferData(data);
     showVampireData(data);
 }
-
+// show location information in html
 function showLocation(data) {
     const locationHtmlElement = document.getElementById("location");
     locationHtmlElement.innerText = `weather for: ${data[0].display_name}`;
+}
+
+// get the 5 last searched locations from local storage in 
+function getLastSearchedLocations(){
+    return localStorage.getItem("lastSearchedLocations") ? JSON.parse(localStorage.getItem("lastSearchedLocations")) : [];
+}
+
+function saveLastSearchedLocation(location){
+    let locations = getLastSearchedLocations();
+    if(!locations.includes(location)){
+        locations.push(location);
+        if(locations.length > 5){
+            locations.shift();
+        }
+        localStorage.setItem("lastSearchedLocations", JSON.stringify(locations));
+    }
 }
