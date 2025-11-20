@@ -45,7 +45,7 @@ init();
 
 function init() {
     showTomatoData(exampleData);
-    generateWeatherLink("T2 campus");
+    generateWeather("T2 campus");
 }
 
 function showTomatoData(data) {
@@ -81,7 +81,7 @@ function generateWeatherData(locationData) {
     let lat = locationData[0].lat;
     let lon = locationData[0].lon;
      const searchLink =
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={API_KEY}`;
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
     fetch(searchLink)
         .then((res) => res.json())
         .then((data) => showWeatherData(data))
@@ -91,6 +91,7 @@ function generateWeatherData(locationData) {
 }
 
 function showWeatherData(data) {
+console.log(data);
 
     showTomatoData(data);
     
