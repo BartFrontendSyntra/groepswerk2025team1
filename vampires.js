@@ -1,24 +1,38 @@
+// const { data } = require("framer-motion/client");
+
 const vampireHtmlElement = document.getElementById("vampires");
 
 function showVampireData(data) {
     // --- SUNRISE ---
-    let sunriseTimestamp = data.sys.sunrise;
-    let sunriseDate = new Date(sunriseTimestamp * 1000);
-    let sunriseHours = sunriseDate.getHours().toString().padStart(2, "0");
-    let sunriseMinutes = sunriseDate.getMinutes().toString().padStart(2, "0");
-    let sunrise = `${sunriseHours}:${sunriseMinutes}`;
-
+    
+    let sunrise = data.sys.sunrise; //`${sunriseHours}:${sunriseMinutes}`;
+    
     // --- SUNSET ---
-    let sunsetTimestamp = data.sys.sunset;
-    let sunsetDate = new Date(sunsetTimestamp * 1000);
-    let sunsetHours = sunsetDate.getHours().toString().padStart(2, "0");
-    let sunsetMinutes = sunsetDate.getMinutes().toString().padStart(2, "0");
-    let sunset = `${sunsetHours}:${sunsetMinutes}`;
+    
+    let sunset = data.sys.sunset; //`${sunsetHours}:${sunsetMinutes}`;
 
     // --- CLOUD COVER ---
-    let cloudCover = data.clouds.all; //
+    let cloudCover = data.clouds.all; 
 
+   // Fill in the HTML elements
     document.getElementById(
-        "vampire-sunhours"
-    ).innerText = `Sunrise: ${sunrise} | Sunset: ${sunset} | Clouds: ${cloudCover}%`;
+        "vampire-sunrise"
+    ).innerText = convertUnixToTime(sunrise);
+
+   document.getElementById(
+      "vampire-sunset"
+   ).innerText = convertUnixToTime(sunset);
+
+   document.getElementById(
+      "vampire-cloudcover"
+   ).innerText = `${cloudCover}%`;
 }
+
+
+// convert time to hours and minutes
+function convertUnixToTime(timestamp) {
+  const date = new Date(timestamp * 1000); // API gives seconds → JS needs ms
+  const hours = date.getHours().toString().padStart(2, "0");
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  return `${hours}:${minutes}`;
+} 
