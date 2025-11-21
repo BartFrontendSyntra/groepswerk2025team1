@@ -95,7 +95,6 @@ body {
 
 .surfcontainer p.card-text {
   font-family: "Inter", sans-serif;
-  font-weight: 500;
   margin-bottom: 6px;
 }
 
@@ -122,7 +121,6 @@ body {
 
 #tomatoes .card-text {
   font-family: "Inter", sans-serif;
-  font-weight: 500;
   margin-bottom: 6px;
 }
 
@@ -184,7 +182,6 @@ body {
 
 #hero-banner p {
     font-family: "Inter", sans-serif;
-    font-weight: 500;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
@@ -270,4 +267,12 @@ surf#hero-banner::after {
 .custom-text {
   font-size: 1.3em;
   font-weight: bold;
+}
+
+.previous-location-button {
+  margin-left: 3px;
+}
+
+.custom-margin {
+  margin-top: 65px;
 }
