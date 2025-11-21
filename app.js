@@ -14,7 +14,9 @@ init();
 function init() {
     let lastLocations = getLastSearchedLocations();
     if (lastLocations.length > 0) {
-        searchWeather(lastLocations[lastLocations.length - 1]);
+        console.log(lastLocations[lastLocations.length - 1][0].name);
+        
+        searchWeather(lastLocations[lastLocations.length - 1][0].name);
         return;
     }
     searchWeather("T2 campus");
@@ -72,8 +74,7 @@ function getLastSearchedLocations() {
 
 function saveLastSearchedLocation(location) {
     let locations = getLastSearchedLocations();
-    console.log(location);
-    
+        
     if (!locations.find(loc => loc[0].name === location[0].name)) {
         locations.push(location);
         if (locations.length > 5) {
