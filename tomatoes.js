@@ -18,9 +18,15 @@ function showRain(data) {
     let rain = data.rain ? data.rain["1h"] : 0;
     const rainMeter = document.getElementById("rain-meter");
     const rainText = document.getElementById("rain-text");
+    const noRainElement = document.getElementById("no-rain");
     if (rain === 0) {
         rainMeter.style.display = "none";
+        // Indicate no rain
+        
+        noRainElement.innerText = "No rain :(";
+        noRainElement.style.display = "flex";
     } else {
+        noRainElement.style.display = "none";
         rainMeter.style.display = "flex";
         rainMeter.setAttribute("aria-valuenow", rain);
         rainText.innerText = `${rain} mm`;
