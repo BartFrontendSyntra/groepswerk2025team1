@@ -94,7 +94,6 @@ body {
 }
 
 .surfcontainer p.card-text {
-  font-size: 14px;
   font-family: "Inter", sans-serif;
   font-weight: 500;
   margin-bottom: 6px;
@@ -104,7 +103,6 @@ body {
 #wind-direction-data {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 16px;
 }
 
 /* =========================================================
@@ -124,7 +122,6 @@ body {
 
 #tomatoes .card-text {
   font-family: "Inter", sans-serif;
-  font-size: 14px;
   font-weight: 500;
   margin-bottom: 6px;
 }
@@ -165,14 +162,12 @@ body {
 
 #vampires .card .row .col {
   font-family: "Inter", sans-serif;
-  font-size: 14px;
   font-weight: 500;
 }
 
 #vampires .card .col.text-end {
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  font-size: 14px;
   text-align: right;
 }
 
@@ -189,7 +184,6 @@ body {
 
 #hero-banner p {
     font-family: "Inter", sans-serif;
-    font-size: 18px;
     font-weight: 500;
     margin-bottom: 30px;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -271,4 +265,9 @@ surf#hero-banner::after {
 /* Values rechts */
 .card-body .col:last-child {
     font-weight: 600;
+}
+
+.custom-text {
+  font-size: 1.3em;
+  font-weight: bold;
 }
