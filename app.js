@@ -14,7 +14,9 @@ init();
 function init() {
     let lastLocations = getLastSearchedLocations();
     if (lastLocations.length > 0) {
-        searchWeather(lastLocations[lastLocations.length - 1]);
+        console.log(lastLocations[lastLocations.length - 1][0].name);
+
+        searchWeather(lastLocations[lastLocations.length - 1][0].name);
         return;
     }
     searchWeather("T2 campus");
@@ -39,7 +41,7 @@ function searchWeather(location) {
 function searchWeatherData(locationData) {
     //show what city we are in and other global information
     showLocation(locationData);
-    saveLastSearchedLocation(locationData[0].display_name);
+    saveLastSearchedLocation(locationData);
 
     //fetch weather data for the location
     let lat = locationData[0].lat;
@@ -55,6 +57,7 @@ function showWeatherData(data) {
     showTomatoData(data);
     showSurferData(data);
     showVampireData(data);
+    generatePreviousSearchesButtons();
 }
 // show location information in html
 function showLocation(data) {
@@ -68,10 +71,11 @@ function getLastSearchedLocations() {
         ? JSON.parse(localStorage.getItem("lastSearchedLocations"))
         : [];
 }
-
+// save the last searched location to local storage
 function saveLastSearchedLocation(location) {
     let locations = getLastSearchedLocations();
-    if (!locations.includes(location)) {
+
+    if (!locations.find((loc) => loc[0].name === location[0].name)) {
         locations.push(location);
         if (locations.length > 5) {
             locations.shift();
@@ -80,5 +84,34 @@ function saveLastSearchedLocation(location) {
             "lastSearchedLocations",
             JSON.stringify(locations)
         );
+    } else {
+        // move the location to the end of the list
+        locations = locations.filter((loc) => loc[0].name !== location[0].name);
+        locations.push(location);
+        localStorage.setItem(
+            "lastSearchedLocations",
+            JSON.stringify(locations)
+        );
+    }
+}
+// generate previous searches buttons
+function generatePreviousSearchesButtons() {
+    const previousSearchesHtmlElement =
+        document.getElementById("previous-locations");
+    previousSearchesHtmlElement.innerHTML = "";
+    let locations = getLastSearchedLocations();
+    for (let location of locations) {
+        const button = document.createElement("button");
+        button.classList.add(
+            "previous-location-button",
+            "btn",
+            "btn-secondary",
+            "btn-sm"
+        );
+        button.innerText = location[0].name;
+        button.addEventListener("click", () => {
+            searchWeatherData(location);
+        });
+        previousSearchesHtmlElement.appendChild(button);
     }
 }
