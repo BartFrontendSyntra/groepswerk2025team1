@@ -5,7 +5,7 @@ body {
   font-family: "Inter", sans-serif;
   color: #232323; /* default text color */
   line-height: 1.4;
-  margin: 0;
+  margin-top: 0;
   padding: 0;
 }
 /* Vertical progress bar for rain */
@@ -177,16 +177,7 @@ body {
 }
 
 /* Hero Banner - Multi-theme Gradient */
-#hero-banner {
-    background: linear-gradient(135deg, #AEECEF 0%, #BEE8C3 50%, #3C2E4F 100%);
-    color: #FFFFFF;
-    padding: 80px 20px;
-    border-radius: var(--radius-medium);
-    box-shadow: var(--shadow-soft);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
+
 
 #hero-banner h2 {
     font-family: "Cinzel", serif;
@@ -232,18 +223,23 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Optional overlay for text readability */
-#hero-banner::after {
+/* Optional overlay for text readability
+surf#hero-banner::after {
     content: "";
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0,0,0,0.2); /* subtle dark overlay */
+    background: rgba(0,0,0,0.2);  subtle dark overlay
     border-radius: var(--radius-medium);
     z-index: 0;
-}
+} */
 
-#hero-banner * {
-    position: relative;
-    z-index: 1;
-}
+
+.my-gradient {
+  /* Apply the gradient as a background */
+  background: linear-gradient(
+    135deg,
+    hsl(183, 67%, 81%),
+    hsl(127, 48%, 83%),
+    hsl(265, 26%, 25%)
+  )};
