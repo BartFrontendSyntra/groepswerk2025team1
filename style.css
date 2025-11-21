@@ -2,6 +2,11 @@ body {
   background-image: url('background.png');
   background-size: cover;
   background-attachment: fixed;
+  font-family: "Inter", sans-serif;
+  color: #232323; /* default text color */
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
 }
 /* Vertical progress bar for rain */
 .progress-vertical {
@@ -17,6 +22,228 @@ body {
     transition: height 0.6s ease;
 }
 
+/* =========================================================
+   GLOBAL COLOR VARIABLES (PALETTE)
+   ========================================================= */
+:root {
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Surfer */
+  --surf-card-bg: #AEECEF;        
+  --surf-text: #245B72;           
+  --surf-accent: #FFD766;         
+
+  /* Tomato */
+  --tomato-card-bg: #BEE8C3;      
+  --tomato-text: #4B4A3F;         
+  --tomato-accent: #F6A5A0;       
+  --tomato-soil: #E9D8C5;         
+  --tomato-sun: #FFE9A9;          
+
+  /* Vampire */
+  --vamp-card-bg: #3C2E4F;        
+  --vamp-text: #EDECF2;           
+  --vamp-accent: #C84444;         
+
+  /* Shared styling */
+  --radius-medium: 12px;
+  --shadow-soft: 0 2px 6px rgba(0,0,0,0.08);
+  --card-padding: 20px;
+}
+
+/* =========================================================
+   GLOBAL TYPOGRAPHY
+   ========================================================= */
 body {
-  padding-top: 70px;
+  font-family: "Inter", sans-serif;
+  color: #232323;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+.card, .surfcontainer {
+  border-radius: var(--radius-medium);
+  box-shadow: var(--shadow-soft);
+  padding: var(--card-padding);
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+/* .card h2, .surfcontainer h2 {
+  text-align: center;
+  margin-bottom: 12px;
+} */
+
+/* =========================================================
+   SURFER CARD
+   ========================================================= */
+.surfcontainer {
+  background-color: var(--surf-card-bg);
+  color: var(--surf-text);
+}
+
+.surfcontainer .surf-header {
+  font-family: "Pacifico", cursive;
+  font-size: 24px;
+  font-weight: normal;
+  color: var(--surf-text);
+}
+
+.surfcontainer p.card-text {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+#wind-speed-data,
+#wind-direction-data {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* =========================================================
+   TOMATO CARD
+   ========================================================= */
+#tomatoes .card {
+  background-color: var(--tomato-card-bg);
+  color: var(--tomato-text);
+}
+
+#tomatoes .card h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--tomato-text);
+}
+
+#tomatoes .card-text {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+/* Progress bars inside tomato card */
+#humidity-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--tomato-accent);
+}
+
+#rain-text {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-white);
+  text-align: center;
+  background-color: var(--tomato-soil);
+}
+
+/* =========================================================
+   VAMPIRE CARD
+   ========================================================= */
+#vampires .card {
+  background-color: var(--vamp-card-bg);
+  color: var(--vamp-text);
+}
+
+#vampires .card h2 {
+  font-family: "Cinzel", serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--vamp-text);
+}
+
+#vampires .card .row .col {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#vampires .card .col.text-end {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+}
+
+/* Hero Banner - Multi-theme Gradient */
+#hero-banner {
+    background: linear-gradient(135deg, #AEECEF 0%, #BEE8C3 50%, #3C2E4F 100%);
+    color: #FFFFFF;
+    padding: 80px 20px;
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-banner h2 {
+    font-family: "Cinzel", serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+}
+
+#hero-banner p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Buttons with theme gradient hover animation */
+#hero-banner button {
+    background: linear-gradient(45deg, #FFD766, #F6A5A0, #C84444);
+    background-size: 300% 300%;
+    color: #FFFFFF;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 12px 28px;
+    border-radius: var(--radius-medium);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: gradientShift 6s ease infinite;
+}
+
+#hero-banner button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Gradient animation keyframes */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Optional overlay for text readability */
+#hero-banner::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.2); /* subtle dark overlay */
+    border-radius: var(--radius-medium);
+    z-index: 0;
+}
+
+#hero-banner * {
+    position: relative;
+    z-index: 1;
 }
