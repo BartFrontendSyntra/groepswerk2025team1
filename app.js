@@ -14,8 +14,6 @@ init();
 function init() {
     let lastLocations = getLastSearchedLocations();
     if (lastLocations.length > 0) {
-        console.log(lastLocations[lastLocations.length - 1][0].name);
-
         searchWeather(lastLocations[lastLocations.length - 1][0].name);
         return;
     }

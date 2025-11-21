@@ -26,6 +26,7 @@ function showRain(data) {
         noRainElement.innerText = "No rain :(";
         noRainElement.style.display = "flex";
     } else {
+     
         noRainElement.style.display = "none";
         rainMeter.style.display = "flex";
         rainMeter.setAttribute("aria-valuenow", rain);
