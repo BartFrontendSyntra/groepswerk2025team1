@@ -247,3 +247,32 @@ body {
     position: relative;
     z-index: 1;
 }
+
+/* Paarse onderkant zoals je screenshot */
+.card-body {
+    background-color: #3d2756;
+    color: white;
+    border-radius: 0 0 12px 12px;
+    padding-bottom: 25px;
+}
+
+/* Mooie rijen */
+.card-body .row {
+    padding: 10px 0;
+    border-bottom: none !important;
+}
+
+/* Laatste rij zonder lijn */
+.card-body .row:last-child {
+    border-bottom: none;
+}
+
+/* Labels links */
+.card-body .col:first-child {
+    opacity: 0.85;
+}
+
+/* Values rechts */
+.card-body .col:last-child {
+    font-weight: 600;
+}
